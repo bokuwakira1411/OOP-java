@@ -24,7 +24,7 @@ public class String_blowup {
             char c = str.charAt(i);
             if (Character.isDigit(c) && i != str.length()) {
                 if (i + 1 < str.length() && (str.charAt(i + 1) <= 'z' && str.charAt(i + 1) >= 'a')) {
-                    for (int j = 0; j < i; j++) {
+                    for (int j = 0; j < c - '0'; j++) {
                         result.append(str.charAt(i + 1));
                     }
                 }
