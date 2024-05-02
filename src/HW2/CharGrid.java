@@ -2,24 +2,24 @@ package HW2;
 
 
 public class CharGrid {
-    private static char[][] grid = new char[10][10];
-    public CharGrid(char[][] grid){
-        this.grid = grid;
-    }
-    public static void main(String[] args) {
-      char[][] gridd = {
-              {' ', ' ', 'p', ' ', ' ', ' ', ' ', ' ', ' '},
-              {' ', ' ', 'p', ' ', ' ', ' ', ' ', 'x', ' '},
-              {'p', 'p', 'p', 'p', 'p', ' ', 'x', 'x', 'x'},
-              {' ', ' ', 'p', ' ', ' ', 'y', ' ', 'x', ' '},
-              {' ', ' ', 'p', ' ', 'y', 'y', 'y', ' ', ' '},
-              {'z', 'z', 'z', 'z', 'z', 'y', 'z', 'z', 'z'},
-              {' ', ' ', 'x', 'x', ' ', 'y', ' ', ' ', ' '}
+  public static char[][] grid;
 
-      };
-      CharGrid grid = new CharGrid(gridd);
-        int n = countPlus();
-        System.out.println(n);
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        sc.nextLine();
+        grid = new char[n][m];
+        for(int i = 0; i < n; i++){
+            String line = sc.nextLine();
+            for(int j = 0; j < m; j++){
+                grid[i][j] = line.charAt(j);
+            }
+        }
+        char c = sc.next().charAt(0);
+        System.out.println(charArea(c));
+        int count = countPlus();
+        System.out.println(count);
     }
 
     public int charArea(char ch) {
