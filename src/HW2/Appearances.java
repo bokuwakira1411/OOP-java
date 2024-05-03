@@ -61,12 +61,25 @@ public class Appearances {
         }
     }
 public static void main(String[] args){
-        Collection<String> a = List.of("a","b", "a", "b", "c");
-        Collection<String> b = List.of("c", "a", "a", "d", "b", "b", "b");
+        Scanner sc = new Scanner(System.in);
+        List<String> a = new ArrayList<>();
+        List<String> b = new ArrayList<>();
+        int n = sc.nextInt();
+        sc.nextLine();
+        for(int i = 0; i < n; i++){
+            String input = sc.nextLine();
+            a.add(input);
+        }
+        int m = sc.nextInt();
+        sc.nextLine();
+        for(int i = 0; i < m; i++){
+            String input = sc.nextLine();
+            b.add(input);
+        }
+        System.out.println(a);
         int result = sameCount(a, b);
         System.out.println(result);
-        List<String> list = new ArrayList<>(a);
-        Taboo<String> taboo = new Taboo<>(list);
+        Taboo<String> taboo = new Taboo<>(a);
         System.out.println(taboo.noFollow("a"));
         System.out.println(taboo.noFollow("b"));
         System.out.println(taboo.noFollow("c"));
