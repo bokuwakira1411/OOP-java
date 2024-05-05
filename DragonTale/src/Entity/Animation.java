@@ -5,12 +5,9 @@ import java.awt.image.BufferedImage;
 public class Animation {
     private BufferedImage[] frames;
     private int currentFrame;
-    private long startTime;
-    private long delay;
+    private long startTime, delay;
     private boolean playedOnce;
-    public Animation(){
-        playedOnce = false;
-    }
+    public Animation(){ playedOnce = false;}
     public void setFrames(BufferedImage[] frames){
         this.frames = frames;
         currentFrame = 0;
@@ -21,7 +18,7 @@ public class Animation {
     public void setFrame(int i){ currentFrame = i;}
     public void update(){
         if(delay == -1) return;
-        long elapsed = (System.nanoTime() - startTime) /1000000;
+        long elapsed = (System.nanoTime() - startTime) / 1000000;
         if(elapsed > delay){
             currentFrame++;
             startTime = System.nanoTime();
