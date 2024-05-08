@@ -1,1 +1,65 @@
+class Node<Item>{
+    private Item t;
+    private Node next;
+    public Node(Item t){
+        this.t = t;
+        this.next = null;
+    }
+    public Item getItem(){
+        return t;
+    }
+    public void setData(Item t){
+        this.t = t;
+    }
+    public Node getNext(){
+        return next;
+    }
+    public void setNext(Node next){
+        this.next = next;
+    }
+}
+public class Stack<Item> {
+    Node head = new Node(null);
+    public void push(Item t) {
+        Node New = new Node(t);
+        if (this.isEmpty()) {
+            head = New;
+        } else {
+            while (head.getNext() != null) {
+                head = head.getNext();
+            }
+            head.setNext(New);
+        }
+    }
+    public Item pop(){
+        Node tmp = null;
+        while(head.getNext() != null){
+            tmp = head;
+            head= head.getNext();
+        }
+        tmp.setNext(null);
+        return (Item) head.getItem();
 
+    }
+    public int size(){
+        int sz = 0;
+        while(head.getNext() != null){
+            head = head.getNext();
+            sz++;
+        }
+        return sz + 1;
+    }
+    public boolean isEmpty(){
+        if(this.size() == 0){
+            return true;
+        }
+        return false;
+    }
+    public static void main(String[] args){
+        Stack<String> stack = new Stack<>();
+        stack.push("Hello");
+        String s = stack.pop();
+        System.out.println(s);
+        System.out.println(stack.isEmpty());
+    }
+}
