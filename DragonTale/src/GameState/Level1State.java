@@ -6,9 +6,12 @@ import Main.GamePanel;
 import TileMap.*;
 import Entity.*;
 import Entity.Enemies.*;
+import Audio.AudioPlayer;
+
 public class Level1State extends GameState{
     private TileMap tileMap;
     private Background bg;
+    private AudioPlayer bgMusic;
     private Player player;
     private ArrayList<Enemy> enemies;
     private ArrayList<Explosion> explosions;
@@ -16,7 +19,6 @@ public class Level1State extends GameState{
     public Level1State(GameStateManager gsm){
         this.gsm = gsm;
         init();
-
     }
     public void init(){
         tileMap = new TileMap(30);
@@ -30,22 +32,33 @@ public class Level1State extends GameState{
         populateEnemies();
         explosions = new ArrayList<Explosion>();
         hud = new HUD(player);
+        bgMusic = new AudioPlayer("/image/Music/level1-1.mp3");
+        bgMusic.play();
     }
     private void populateEnemies(){
         enemies = new ArrayList<Enemy>();
         Slugger s;
         Point[] points= new Point[]{
-                new Point(200, 100),
+                new Point(50, 100),
                 new Point(860, 200),
                 new Point(1525, 200),
                 new Point(1680, 200),
-                new Point(1800, 200)
+                new Point(1800, 200),
         };
         for(int i = 0; i < points.length; i++){
             s = new Slugger(tileMap);
             s.setPosition(points[i].x, points[i].y);
             enemies.add(s);
         }
+        Point[] points2 = new Point[]{
+                new Point(100, 0)
+        };
+//        Arachnik a;
+//        for(int i = 0; i < points2.length; i++){
+//            a = new Arachnik(tileMap);
+//            a.setPosition(points2[i].x, points2[i].y);
+//            enemies.add(a);
+//        }
     }
     public void update(){
         player.update();
