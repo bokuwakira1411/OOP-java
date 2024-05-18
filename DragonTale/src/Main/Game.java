@@ -1,8 +1,6 @@
 package Main;
 
 import javax.swing.*;
-
-
 public class Game {
     public static void main(String[] args){
         JFrame window = new JFrame("Dragon Tale");

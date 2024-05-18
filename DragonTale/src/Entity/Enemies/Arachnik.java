@@ -1,4 +1,3 @@
-
 //package Entity.Enemies;
 //
 //import Entity.Animation;
@@ -69,7 +68,6 @@
 //                flinching = false;
 //            }
 //        }
-//        // if it hits a wall go other direction
 //        if(up && dy == 0){
 //            up = false;
 //            down = true;

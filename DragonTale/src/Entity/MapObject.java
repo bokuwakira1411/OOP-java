@@ -17,7 +17,7 @@ public abstract class MapObject {
     protected int currentAction, previousAction;
     protected boolean facingRight;
     protected boolean left, right, up, down, jumping, falling;
-    protected double moveSpeed, maxSpeed, stopSpeed, fallSpeed, maxFallSpeed, jumpStart, stopJumpSpeed;
+    protected double moveSpeed, maxSpeed, stopSpeed, fallSpeed, maxFallSpeed, jumpStart, stopJumpSpeed, jumpSpeed;
     public MapObject(TileMap tm){
         tileMap = tm;
         tileSize = tm.getTileSize();

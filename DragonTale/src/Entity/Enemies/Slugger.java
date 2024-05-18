@@ -69,7 +69,7 @@ public class Slugger extends Enemy{
         setPosition(xtemp, ytemp);
         // check flinching
         if(flinching){
-            long elapsed = (System.nanoTime() - flinchTimer) /1000000;
+            long elapsed = (System.nanoTime() - flinchTime) /1000000;
             if(elapsed > 400){
                 flinching = false;
             }
